@@ -12,12 +12,18 @@ public class MouseInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            
 
             if (hit)
             {
                 if (hit.collider.tag == "Player")
                 {
+                    if (selectedMedic != null)
+                    {
+                        selectedMedic.GetComponent<SpriteRenderer>().color = Color.black;
+                    }
                     selectedMedic = hit.collider.gameObject;
+                    selectedMedic.GetComponent<SpriteRenderer>().color = Color.green;
                 }
                 else
                 {
