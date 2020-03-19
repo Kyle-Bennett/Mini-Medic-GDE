@@ -5,7 +5,10 @@ using UnityEngine;
 public class MouseInput : MonoBehaviour
 {
     public PlayerMovement movementScript;
+    public SoldierMovement soldierScript;
     public GameObject selectedMedic;
+    public GameObject soldierPrefab;
+    private bool haveSoldiersSpawned = false;
 
     private void Update()
     {
@@ -39,18 +42,27 @@ public class MouseInput : MonoBehaviour
 
             if (hit)
             {
-
-                    Debug.Log("Test");
-                    movementScript.SetTargetPosition();
-                    movementScript.isMoving = true;
-
-            }
-            else
-            {
-                Debug.Log("Test");
                 movementScript.SetTargetPosition();
                 movementScript.isMoving = true;
             }
+            else
+            {
+                movementScript.SetTargetPosition();
+                movementScript.isMoving = true;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && haveSoldiersSpawned == false)
+        {
+            soldierScript = soldierPrefab.GetComponent<SoldierMovement>();
+            GameObject soldierOne =  Instantiate(soldierPrefab, new Vector3(-8, -5, -1), Quaternion.identity) as GameObject;
+            soldierOne.name = "soldierOne";
+            GameObject soldierTwo = Instantiate(soldierPrefab, new Vector3(-6, -5, -1), Quaternion.identity) as GameObject;
+            soldierTwo.name = "soldierTwo";
+            GameObject soldierThree = Instantiate(soldierPrefab, new Vector3(-4, -5, -1), Quaternion.identity) as GameObject;
+            soldierThree.name = "soldierThree";
+            soldierScript.isSoldierMoving = true;
+            haveSoldiersSpawned = true;
         }
     }
 }
