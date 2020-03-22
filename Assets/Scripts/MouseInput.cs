@@ -56,12 +56,16 @@ public class MouseInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && haveSoldiersSpawned == false)
         {
             soldierScript = soldierPrefab.GetComponent<SoldierMovement>();
-            GameObject soldierOne =  Instantiate(soldierPrefab, new Vector3(-8, -5, -1), Quaternion.identity) as GameObject;
+
+            GameObject soldierOne =  Instantiate(soldierPrefab, new Vector3(150, 150, 0), Quaternion.identity) as GameObject;
             soldierOne.name = "soldierOne";
-            GameObject soldierTwo = Instantiate(soldierPrefab, new Vector3(-6, -5, -1), Quaternion.identity) as GameObject;
+
+            GameObject soldierTwo = Instantiate(soldierPrefab, new Vector3(200, 150, 0), Quaternion.identity) as GameObject;
             soldierTwo.name = "soldierTwo";
-            GameObject soldierThree = Instantiate(soldierPrefab, new Vector3(-4, -5, -1), Quaternion.identity) as GameObject;
+
+            GameObject soldierThree = Instantiate(soldierPrefab, new Vector3(325, 150, 0), Quaternion.identity) as GameObject;
             soldierThree.name = "soldierThree";
+
             soldierScript.isSoldierMoving = true;
             haveSoldiersSpawned = true;
         }

@@ -1313,8 +1313,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504468173}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 649.48016, y: 357.455, z: -304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -579.51984, y: -390.545, z: -304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1755356467}
@@ -1324,8 +1324,8 @@ Transform:
   - {fileID: 89715592}
   - {fileID: 909285669}
   - {fileID: 244627439}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 811766792}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517016114
 GameObject:
@@ -2024,6 +2024,7 @@ Transform:
   - {fileID: 1826268198}
   - {fileID: 1672928974}
   - {fileID: 1899836772}
+  - {fileID: 504468174}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4996,6 +4997,12 @@ PrefabInstance:
       propertyPath: medicsAlive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 949323747640709676, guid: 4661f1d27c1c2144d83b7595105cb1fb,
+        type: 3}
+      propertyPath: soldierPrefab
+      value: 
+      objectReference: {fileID: 3351527442263107876, guid: a1222bdd2f234c745b0101686e1492e3,
+        type: 3}
     - target: {fileID: 949323747640709677, guid: 4661f1d27c1c2144d83b7595105cb1fb,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,7 +11,6 @@ public class RiskMeterController : MonoBehaviour
 
     public RiskMeterUI riskMeterUI;
     public MouseInput InputScript;
-    private bool isSafe = true;
 
     private void Start()
     {
