@@ -9,6 +9,7 @@ public class MouseInput : MonoBehaviour
     public GameObject selectedMedic;
     public GameObject soldierPrefab;
     private bool haveSoldiersSpawned = false;
+    public int medicsSafe = 0;
 
     private void Update()
     {

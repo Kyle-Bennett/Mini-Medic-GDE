@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4541482459232061662}
   - component: {fileID: 4541482459232061661}
   - component: {fileID: 4541482459232061660}
+  - component: {fileID: -1083050670576567264}
   m_Layer: 0
-  m_Name: medicMiddle
+  m_Name: Medic
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c3e76911a97db42b2975580b6791ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 100
   isMoving: 0
 --- !u!58 &4541482459232061661
 CircleCollider2D:
@@ -135,3 +136,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1083050670576567264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541482459232061657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37a18660672e1746949f74b7f570c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRisk: 100
+  startingRisk: 0
+  riskMeterUI: {fileID: 0}
+  InputScript: {fileID: 0}

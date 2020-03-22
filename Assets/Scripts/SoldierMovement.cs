@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoldierMovement : MonoBehaviour
 {
     [SerializeField]
-    public float speed = 2;
+    public float speed = 75;
 
     public GameObject inputManager;
     public MouseInput InputScript;
