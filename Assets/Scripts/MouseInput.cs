@@ -9,6 +9,7 @@ public class MouseInput : MonoBehaviour
     public GameObject selectedMedic;
     public GameObject soldierPrefab;
     private bool haveSoldiersSpawned = false;
+    public bool spawnSoldiers = false;
     public int medicsSafe = 0;
 
     private void Update()
@@ -53,7 +54,7 @@ public class MouseInput : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && haveSoldiersSpawned == false)
+        if ((Input.GetKeyDown(KeyCode.Space) && haveSoldiersSpawned == false) || (spawnSoldiers == true && haveSoldiersSpawned == false))
         {
             soldierScript = soldierPrefab.GetComponent<SoldierMovement>();
 
