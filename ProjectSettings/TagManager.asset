@@ -7,6 +7,7 @@ TagManager:
   - Background
   - Soldier
   - SafeZone
+  - InputManager
   layers:
   - Default
   - TransparentFX

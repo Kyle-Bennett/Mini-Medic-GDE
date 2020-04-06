@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 65303832}
   - component: {fileID: 65303834}
   - component: {fileID: 65303833}
+  - component: {fileID: 65303835}
   m_Layer: 0
   m_Name: Collider(BarbedWire4)
   m_TagString: Untagged
@@ -229,6 +230,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &65303835
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65303831}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &74325892
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +416,7 @@ GameObject:
   - component: {fileID: 79873243}
   - component: {fileID: 79873242}
   - component: {fileID: 79873241}
+  - component: {fileID: 79873244}
   m_Layer: 0
   m_Name: Collider(Rock1)
   m_TagString: Untagged
@@ -491,6 +514,27 @@ Transform:
   m_Father: {fileID: 117990001}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.142}
+--- !u!50 &79873244
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79873240}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &89715591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,6 +1216,7 @@ GameObject:
   - component: {fileID: 359263102}
   - component: {fileID: 359263101}
   - component: {fileID: 359263100}
+  - component: {fileID: 359263103}
   m_Layer: 0
   m_Name: Collider(Rock)
   m_TagString: Untagged
@@ -1269,6 +1314,27 @@ Transform:
   m_Father: {fileID: 117990001}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.142}
+--- !u!50 &359263103
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359263099}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &428499213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1346,7 @@ GameObject:
   - component: {fileID: 428499214}
   - component: {fileID: 428499216}
   - component: {fileID: 428499215}
+  - component: {fileID: 428499217}
   m_Layer: 0
   m_Name: Collider(Rock3)
   m_TagString: Untagged
@@ -1377,6 +1444,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &428499217
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428499213}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &446566935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1476,7 @@ GameObject:
   - component: {fileID: 446566936}
   - component: {fileID: 446566938}
   - component: {fileID: 446566937}
+  - component: {fileID: 446566939}
   m_Layer: 0
   m_Name: Collider(BarbedWire3)
   m_TagString: Untagged
@@ -1485,6 +1574,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &446566939
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446566935}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &504468173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1770,7 @@ GameObject:
   - component: {fileID: 536605340}
   - component: {fileID: 536605339}
   - component: {fileID: 536605338}
+  - component: {fileID: 536605341}
   m_Layer: 0
   m_Name: Collider(Rock2)
   m_TagString: Untagged
@@ -1757,6 +1868,27 @@ Transform:
   m_Father: {fileID: 117990001}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.528002}
+--- !u!50 &536605341
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536605337}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &581152371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,6 +2016,7 @@ GameObject:
   - component: {fileID: 644110881}
   - component: {fileID: 644110883}
   - component: {fileID: 644110882}
+  - component: {fileID: 644110884}
   m_Layer: 0
   m_Name: Collider(BarbedWire4) (1)
   m_TagString: Untagged
@@ -1981,6 +2114,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &644110884
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644110880}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &730757909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,6 +2248,7 @@ GameObject:
   - component: {fileID: 779179812}
   - component: {fileID: 779179811}
   - component: {fileID: 779179810}
+  - component: {fileID: 779179813}
   m_Layer: 0
   m_Name: Collider(Rock3)
   m_TagString: Untagged
@@ -2191,6 +2346,27 @@ Transform:
   m_Father: {fileID: 117990001}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.528002}
+--- !u!50 &779179813
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779179809}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &811766791
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,6 +2576,7 @@ GameObject:
   - component: {fileID: 916135171}
   - component: {fileID: 916135173}
   - component: {fileID: 916135172}
+  - component: {fileID: 916135174}
   m_Layer: 0
   m_Name: Collider(Rock)
   m_TagString: Untagged
@@ -2497,6 +2674,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &916135174
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916135170}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &942724991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3214,6 +3412,7 @@ GameObject:
   - component: {fileID: 1243682391}
   - component: {fileID: 1243682393}
   - component: {fileID: 1243682392}
+  - component: {fileID: 1243682394}
   m_Layer: 0
   m_Name: Collider(BarbedWire4) (5)
   m_TagString: Untagged
@@ -3311,6 +3510,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1243682394
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243682390}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1357693706
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,6 +3542,7 @@ GameObject:
   - component: {fileID: 1357693707}
   - component: {fileID: 1357693709}
   - component: {fileID: 1357693708}
+  - component: {fileID: 1357693710}
   m_Layer: 0
   m_Name: Collider(BarbedWire4) (4)
   m_TagString: Untagged
@@ -3419,6 +3640,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1357693710
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357693706}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1378359289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3663,6 +3905,7 @@ GameObject:
   - component: {fileID: 1440636164}
   - component: {fileID: 1440636166}
   - component: {fileID: 1440636165}
+  - component: {fileID: 1440636167}
   m_Layer: 0
   m_Name: Collider(WoodBarricade) (1)
   m_TagString: Untagged
@@ -3760,6 +4003,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1440636167
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440636163}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1516570099
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,6 +4035,7 @@ GameObject:
   - component: {fileID: 1516570100}
   - component: {fileID: 1516570102}
   - component: {fileID: 1516570101}
+  - component: {fileID: 1516570103}
   m_Layer: 0
   m_Name: Collider(BarbedWire)
   m_TagString: Untagged
@@ -3868,6 +4133,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1516570103
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516570099}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1619703168
 GameObject:
   m_ObjectHideFlags: 0
@@ -3987,6 +4273,7 @@ GameObject:
   - component: {fileID: 1660719016}
   - component: {fileID: 1660719018}
   - component: {fileID: 1660719017}
+  - component: {fileID: 1660719019}
   m_Layer: 0
   m_Name: Collider(Rock2)
   m_TagString: Untagged
@@ -4084,6 +4371,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1660719019
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660719015}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1672928973
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,7 +4416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672928973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -460, y: -456.1, z: 0}
+  m_LocalPosition: {x: -460, y: -456.1, z: -0.21}
   m_LocalScale: {x: 49.183052, y: 49.183052, z: 31.1}
   m_Children:
   - {fileID: 255374348}
@@ -4693,6 +5001,7 @@ GameObject:
   - component: {fileID: 1844430967}
   - component: {fileID: 1844430969}
   - component: {fileID: 1844430968}
+  - component: {fileID: 1844430970}
   m_Layer: 0
   m_Name: Collider(BarbedWire4) (2)
   m_TagString: Untagged
@@ -4790,6 +5099,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1844430970
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844430966}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1850309914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4891,6 +5221,7 @@ GameObject:
   - component: {fileID: 1865646496}
   - component: {fileID: 1865646498}
   - component: {fileID: 1865646497}
+  - component: {fileID: 1865646499}
   m_Layer: 0
   m_Name: Collider(WoodBarricade)
   m_TagString: Untagged
@@ -4988,6 +5319,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1865646499
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865646495}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &1868371060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5233,6 +5585,7 @@ GameObject:
   - component: {fileID: 2004679390}
   - component: {fileID: 2004679392}
   - component: {fileID: 2004679391}
+  - component: {fileID: 2004679393}
   m_Layer: 0
   m_Name: Collider(BarbedWire2)
   m_TagString: Untagged
@@ -5330,6 +5683,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2004679393
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004679389}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &2091271751
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,6 +5715,7 @@ GameObject:
   - component: {fileID: 2091271752}
   - component: {fileID: 2091271754}
   - component: {fileID: 2091271753}
+  - component: {fileID: 2091271755}
   m_Layer: 0
   m_Name: Collider(BarbedWire4) (3)
   m_TagString: Untagged
@@ -5438,6 +5813,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2091271755
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091271751}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1 &2130975571
 GameObject:
   m_ObjectHideFlags: 0
@@ -5449,6 +5845,7 @@ GameObject:
   - component: {fileID: 2130975572}
   - component: {fileID: 2130975574}
   - component: {fileID: 2130975573}
+  - component: {fileID: 2130975575}
   m_Layer: 0
   m_Name: Collider(Rock1)
   m_TagString: Untagged
@@ -5546,6 +5943,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2130975575
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130975571}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!1001 &949323747837657008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5557,6 +5975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MouseInputManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 949323747640709675, guid: 4661f1d27c1c2144d83b7595105cb1fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: InputManager
       objectReference: {fileID: 0}
     - target: {fileID: 949323747640709676, guid: 4661f1d27c1c2144d83b7595105cb1fb,
         type: 3}
@@ -5572,8 +5995,13 @@ PrefabInstance:
         type: 3}
       propertyPath: soldierPrefab
       value: 
-      objectReference: {fileID: 3351527442263107876, guid: a1222bdd2f234c745b0101686e1492e3,
+      objectReference: {fileID: 3270763980522841665, guid: e422c6ac367e4d24f9fb00321a74b800,
         type: 3}
+    - target: {fileID: 949323747640709676, guid: 4661f1d27c1c2144d83b7595105cb1fb,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 581152375}
     - target: {fileID: 949323747640709677, guid: 4661f1d27c1c2144d83b7595105cb1fb,
         type: 3}
       propertyPath: m_LocalPosition.x
