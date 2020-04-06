@@ -10,12 +10,14 @@ public class SoldierMovement : MonoBehaviour
 
     public GameObject inputManager;
     public MouseInput InputScript;
+    public GameObject soldierCounter;
+    public SoldierCounter soldierCounterScript;
 
     private Vector3 soldierOneTargetPosition;
     private Vector3 soldierTwoTargetPosition;
     private Vector3 soldierThreeTargetPosition;
     public bool isSoldierMoving = false;
-    public bool beginTimer = false;
+    private bool beginTimer = false;
 
     public int soldierTimer;
     private bool hasStopped = false;
@@ -24,10 +26,15 @@ public class SoldierMovement : MonoBehaviour
     [SerializeField]
     private float speed = 3;
 
+    private bool hasJoint = false;
+    private GameObject connectedMedic;
+
     private void Start()
     {
         inputManager = GameObject.FindGameObjectWithTag("InputManager");
         InputScript = inputManager.GetComponent<MouseInput>();
+        soldierCounter = GameObject.FindGameObjectWithTag("SoldierCounter");
+        soldierCounterScript = soldierCounter.GetComponent<SoldierCounter>();
         soldierOneTargetPosition = new Vector3(-302, 230, 0);
         soldierTwoTargetPosition = new Vector3(-67, 183, 0);
         soldierThreeTargetPosition = new Vector3(344, -6, 0);
@@ -41,6 +48,10 @@ public class SoldierMovement : MonoBehaviour
         if (beginTimer)
         {
             woundingTimer();
+        }
+        if (hasJoint)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, connectedMedic.transform.position, 1);
         }
     }
 
@@ -89,5 +100,24 @@ public class SoldierMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(soldierTimer);
         beginTimer = true;
+        gameObject.GetComponent<Rigidbody2D>().simulated = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && !hasJoint && beginTimer)
+        {
+            connectedMedic = collision.gameObject;
+            hasJoint = true;
+        }
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "StartingTrench")
+        {
+            Destroy(this.gameObject);
+            soldierCounterScript.soldiersSaved++;
+        }
     }
 }

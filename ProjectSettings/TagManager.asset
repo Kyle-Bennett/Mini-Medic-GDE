@@ -8,6 +8,7 @@ TagManager:
   - Soldier
   - SafeZone
   - InputManager
+  - SoldierCounter
   layers:
   - Default
   - TransparentFX
