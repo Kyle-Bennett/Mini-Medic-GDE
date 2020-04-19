@@ -8,25 +8,28 @@ public class RiskMeterController : MonoBehaviour
     public int startingRisk = 0;
     public float currentRisk;
     public float riskSpeed = 5;
+    public bool isSafe = true;
 
     public RiskMeterUI riskMeterUI;
     public MouseInput InputScript;
+    public GameObject inputManagerObject;
 
     private void Start()
     {
+        inputManagerObject = GameObject.FindGameObjectWithTag("InputManager");
+        InputScript = inputManagerObject.GetComponent<MouseInput>();
         riskMeterUI.SetMaxRisk(maxRisk);
         riskMeterUI.setRisk(startingRisk);
         currentRisk = startingRisk;
-        Debug.Log(currentRisk);
     }
 
     private void Update()
     {
-        if (InputScript.medicsSafe == 3)
+        if (isSafe)
         {
             DecreaseRisk();
         }
-        else if (InputScript.medicsSafe < 3)
+        else if (!isSafe)
         {
             IncreaseRisk();
         }
@@ -36,8 +39,7 @@ public class RiskMeterController : MonoBehaviour
     {
         if (collision.gameObject.tag == "SafeZone")
         {
-            Debug.Log("Safe");
-            InputScript.medicsSafe++;
+            isSafe = true;
         }
     }
 
@@ -45,8 +47,7 @@ public class RiskMeterController : MonoBehaviour
     {
         if (collision.gameObject.tag == "SafeZone")
         {
-            Debug.Log("Not Safe");
-            InputScript.medicsSafe--;
+            isSafe = false;
         }
     }
 

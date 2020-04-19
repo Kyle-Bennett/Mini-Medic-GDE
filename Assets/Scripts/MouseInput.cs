@@ -26,7 +26,7 @@ public class MouseInput : MonoBehaviour
                 {
                     if (selectedMedic != null)
                     {
-                        selectedMedic.GetComponent<SpriteRenderer>().color = Color.black;
+                        selectedMedic.GetComponent<SpriteRenderer>().color = Color.white;
                     }
                     selectedMedic = hit.collider.gameObject;
                     selectedMedic.GetComponent<SpriteRenderer>().color = Color.green;

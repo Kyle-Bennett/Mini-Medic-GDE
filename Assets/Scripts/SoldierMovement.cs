@@ -26,8 +26,11 @@ public class SoldierMovement : MonoBehaviour
     [SerializeField]
     private float speed = 3;
 
-    private bool hasJoint = false;
-    private GameObject connectedMedic;
+    public bool hasJoint = false;
+    public GameObject connectedMedic;
+    private GameObject connectedSoldier;
+
+    
 
     private void Start()
     {
@@ -51,7 +54,7 @@ public class SoldierMovement : MonoBehaviour
         }
         if (hasJoint)
         {
-            transform.position = Vector3.MoveTowards(transform.position, connectedMedic.transform.position, 1);
+            transform.position = Vector3.MoveTowards(transform.position, connectedMedic.transform.position, 1);    
         }
     }
 
@@ -105,9 +108,10 @@ public class SoldierMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !hasJoint && beginTimer)
+        if (collision.gameObject.tag == "Player"  && beginTimer && !InputScript.selectedMedic.GetComponent<PlayerMovement>().isCarrying)
         {
             connectedMedic = collision.gameObject;
+            InputScript.selectedMedic.GetComponent<PlayerMovement>().isCarrying = true;
             hasJoint = true;
         }
         
@@ -118,6 +122,7 @@ public class SoldierMovement : MonoBehaviour
         {
             Destroy(this.gameObject);
             soldierCounterScript.soldiersSaved++;
+            InputScript.selectedMedic.GetComponent<PlayerMovement>().isCarrying = false;
         }
     }
 }

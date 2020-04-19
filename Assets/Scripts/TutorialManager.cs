@@ -5,10 +5,17 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     public MouseInput inputScript;
+    public RiskMeterController riskMeterScript;
+    public SoldierMovement soldierMovementScript;
+    public SoldierCounter soldierCountScript;
+    public GameObject soldierGameObject;
+    public List<GameObject> soldiersList = new List<GameObject>();
 
     public GameObject[] popUps;
     private int popUpIndex;
-    public float waitTime = 5f;
+    public float waitTime = 3f;
+    public bool soldiersStopped = false;
+    public bool soldierPickedUp = false;
 
     private void Update()
     {
@@ -33,14 +40,15 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 1)
         {
-            if (inputScript.movementScript.isMoving == true)
+            if (inputScript.movementScript.isMoving == true && inputScript.selectedMedic.GetComponent<RiskMeterController>().isSafe == false)
             {
                 popUpIndex++;
             }
         }
         else if (popUpIndex == 2)
         {
-            if (inputScript.medicsSafe == 3 && inputScript.movementScript.isMoving == false)
+            
+            if (inputScript.selectedMedic.GetComponent<RiskMeterController>().isSafe == true)
             {
                 popUpIndex++;
             }
@@ -51,6 +59,7 @@ public class TutorialManager : MonoBehaviour
             {
                 inputScript.spawnSoldiers = true;
                 popUpIndex++;
+                waitTime = 7f;
             }
             else
             {
@@ -59,7 +68,61 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 4)
         {
+            soldierGameObject = GameObject.FindGameObjectWithTag("Soldier");
+            soldierMovementScript = soldierGameObject.GetComponent<SoldierMovement>();
+            if (soldiersList.Count < 3)
+            {
+                soldiersList.AddRange(GameObject.FindGameObjectsWithTag("Soldier"));
+            }
 
+            foreach (GameObject sold in soldiersList)
+            {
+                if (sold.GetComponent<SoldierMovement>().isSoldierMoving == true)
+                {
+                    soldiersStopped = false;
+                }
+                else if (sold.GetComponent<SoldierMovement>().isSoldierMoving == false)
+                {
+                    soldiersStopped = true;
+                }
+            }
+            if (soldiersStopped == true)
+            {
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 5)
+        {
+            if (waitTime <= 0)
+            {
+                popUpIndex++;
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
+        }
+        else if (popUpIndex == 6)
+        {
+            foreach (GameObject sold in soldiersList)
+            {
+                if (sold.GetComponent<SoldierMovement>().hasJoint == true)
+                {
+                    soldierPickedUp = true;
+                }
+            }
+
+            if (soldierPickedUp == true)
+            {
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 7)
+        {
+            if (soldierCountScript.soldiersSaved == 1)
+            {
+                popUpIndex++;
+            }
         }
     }
 }
