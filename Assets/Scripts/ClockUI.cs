@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class ClockUI : MonoBehaviour
 {
+    public GameVariables gamevariablesScript;
+
     private Text clock;
     private float time = 0;
     private int wholeTime;
     private int dayCount = 1;
     public GameObject upgradePanel;
+    public GameObject medicUpgradePanel;
+    public GameObject optionsPanel;
     public Button upgradeMedicButton;
     public Button recruitMedicButton;
     [SerializeField]
@@ -20,11 +24,28 @@ public class ClockUI : MonoBehaviour
     public GameObject medicsCollection;
     public GameObject medicPlaceholder;
 
+    public Button speedUpgrade;
+    public Button riskMeterUpgrade;
+    public Button bleedoutUpgrade;
+    public Button countdownUpgrade;
+
+    public Text upgradeStats;
+    private float playerSpeedPercent = 0;
+    private float riskMeterPercent = 0;
+    private float bleedoutPercent = 0;
+    private float countdownSeconds = 0;
+
     void Start()
     {
+        gamevariablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
         clock = GetComponent<Text>();
         upgradeMedicButton.onClick.AddListener(clickUpgrade);
         recruitMedicButton.onClick.AddListener(clickRecruit);
+
+        speedUpgrade.onClick.AddListener(delegate { upgradeMedic("speed"); });
+        riskMeterUpgrade.onClick.AddListener(delegate { upgradeMedic("risk"); });
+        bleedoutUpgrade.onClick.AddListener(delegate { upgradeMedic("bleedout"); });
+        countdownUpgrade.onClick.AddListener(delegate { upgradeMedic("countdown"); });
     }
 
     void Update()
@@ -50,21 +71,20 @@ public class ClockUI : MonoBehaviour
         {
             upgradePanel.SetActive(true);
             Time.timeScale = 0;
-
         }
         if ((dayCount-1) % 3 == 0)
         {
             upgradesDone = false;
         }
+
+        upgradeStats.text = "+ " + playerSpeedPercent + "%\n\n" + "- " + riskMeterPercent + "%\n\n" + "+ " + bleedoutPercent + "%\n\n" + "+ " + countdownSeconds + " seconds";
         
     }
 
     void clickUpgrade()
     {
-        upgradePanel.SetActive(false);
-        Time.timeScale = 1;
-        upgradesDone = true;
-        selected = true;
+        medicUpgradePanel.SetActive(true);
+        optionsPanel.SetActive(false);
     }
 
     void clickRecruit()
@@ -75,6 +95,37 @@ public class ClockUI : MonoBehaviour
         newMedic.transform.localPosition = new Vector3(0f, 0f, 0f);
 
         upgradePanel.SetActive(false);
+        optionsPanel.SetActive(true);
+        Time.timeScale = 1;
+        upgradesDone = true;
+        selected = true;
+    }
+
+    void upgradeMedic (string choice)
+    {
+        if (choice == "speed")
+        {
+            gamevariablesScript.playerSpeed += 6.25f;
+            playerSpeedPercent += 5;
+        }
+        if (choice == "risk")
+        {
+            gamevariablesScript.riskMeterSpeed -= 0.25f;
+            riskMeterPercent += 5;
+        }
+        if (choice == "bleedout")
+        {
+            gamevariablesScript.bleedoutSpeed -= 0.15f;
+            bleedoutPercent += 5;
+        }
+        if (choice == "countdown")
+        {
+            gamevariablesScript.countdownStartingTime += 0.5f;
+            countdownSeconds += 0.5f;
+        }
+        medicUpgradePanel.SetActive(false);
+        upgradePanel.SetActive(false);
+        optionsPanel.SetActive(true);
         Time.timeScale = 1;
         upgradesDone = true;
         selected = true;
