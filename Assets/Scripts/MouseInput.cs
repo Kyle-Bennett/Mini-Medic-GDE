@@ -12,10 +12,11 @@ public class MouseInput : MonoBehaviour
     private bool haveSoldiersSpawned = false;
     public bool spawnSoldiers = false;
     public int medicsSafe = 0;
+    public GameObject upgradePanel;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && upgradePanel.activeInHierarchy == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             
@@ -26,10 +27,10 @@ public class MouseInput : MonoBehaviour
                 {
                     if (selectedMedic != null)
                     {
-                        selectedMedic.GetComponent<SpriteRenderer>().color = Color.white;
+                        selectedMedic.GetComponentInChildren<ParticleSystem>().Stop();
                     }
                     selectedMedic = hit.collider.gameObject;
-                    selectedMedic.GetComponent<SpriteRenderer>().color = Color.green;
+                    selectedMedic.GetComponentInChildren<ParticleSystem>().Play();
                 }
                 else
                 {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RiskMeterController : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class RiskMeterController : MonoBehaviour
     public MouseInput InputScript;
     public GameObject inputManagerObject;
 
+    float currentTime = 0f;
+    float startingTime = 3f;
+    public Text countdownText;
+
     private void Start()
     {
         inputManagerObject = GameObject.FindGameObjectWithTag("InputManager");
@@ -21,6 +26,7 @@ public class RiskMeterController : MonoBehaviour
         riskMeterUI.SetMaxRisk(maxRisk);
         riskMeterUI.setRisk(startingRisk);
         currentRisk = startingRisk;
+        currentTime = startingTime;
     }
 
     private void Update()
@@ -33,6 +39,18 @@ public class RiskMeterController : MonoBehaviour
         {
             IncreaseRisk();
         }
+
+        if (currentRisk >= 100)
+        {
+            currentTime -= 1 * Time.deltaTime;
+            countdownText.text = currentTime.ToString("0");
+            if (currentTime <= 0)
+            {
+                Debug.Log("Destroyed");
+            }
+        }
+        
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
