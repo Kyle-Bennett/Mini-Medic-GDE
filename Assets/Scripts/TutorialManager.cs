@@ -55,15 +55,11 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 3)
         {
-            if (waitTime <= 0)
+            if (Input.GetKeyUp(KeyCode.Return))
             {
                 inputScript.spawnSoldiers = true;
                 popUpIndex++;
                 waitTime = 7f;
-            }
-            else
-            {
-                waitTime -= Time.deltaTime;
             }
         }
         else if (popUpIndex == 4)
