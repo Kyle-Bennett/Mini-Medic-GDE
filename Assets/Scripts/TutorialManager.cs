@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -8,15 +10,31 @@ public class TutorialManager : MonoBehaviour
     public RiskMeterController riskMeterScript;
     public SoldierMovement soldierMovementScript;
     public SoldierCounter soldierCountScript;
+    public ClockUI clockScript;
+    public GameVariables variablesScript;
+
     public GameObject soldierGameObject;
     public List<GameObject> soldiersList = new List<GameObject>();
 
     public GameObject[] popUps;
-    private int popUpIndex;
+    public int popUpIndex;
     public float waitTime = 3f;
     public bool soldiersStopped = false;
     public bool soldierPickedUp = false;
 
+    public Button medicButton;
+    public GameObject wonScreen;
+    public Button exitButton;
+
+    private void Start()
+    {
+        variablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
+        exitButton.onClick.AddListener(ExitGame);
+    }
+    void ExitGame()
+    {
+        SceneManager.LoadScene(1);
+    }
     private void Update()
     {
         for (int i = 0; i < popUps.Length; i++)
@@ -118,6 +136,52 @@ public class TutorialManager : MonoBehaviour
             if (soldierCountScript.soldiersSaved == 1)
             {
                 popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 8)
+        {
+            if (Input.GetKeyUp(KeyCode.Return))
+            {
+                waitTime = 30f;
+                clockScript.dayCount = 3;
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 9)
+        {
+            medicButton.enabled = false;
+
+            if (waitTime <= 0)
+            {
+                popUpIndex++;
+            }
+            else
+            {
+                waitTime -= Time.fixedDeltaTime;
+            }
+        }
+        else if (popUpIndex == 10)
+        {
+            if (clockScript.upgradeSelected)
+            {
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 11)
+        {
+            if (clockScript.upgradeOptionChosen)
+            {
+                popUpIndex++;
+            }
+        }
+        else if (popUpIndex == 12)
+        {
+            riskMeterScript.currentRisk = 100;
+            if (variablesScript.lives < 3)
+            {
+                wonScreen.SetActive(true);
+                variablesScript.gameUI.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }

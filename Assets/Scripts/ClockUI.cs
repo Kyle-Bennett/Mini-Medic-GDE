@@ -10,7 +10,7 @@ public class ClockUI : MonoBehaviour
     private Text clock;
     private float time = 0;
     private int wholeTime;
-    private int dayCount = 1;
+    public int dayCount = 1;
     public GameObject upgradePanel;
     public GameObject medicUpgradePanel;
     public GameObject optionsPanel;
@@ -20,6 +20,8 @@ public class ClockUI : MonoBehaviour
     private float clockSpeed = 0.2f;
     private bool upgradesDone = false;
     public bool selected = false;
+    public bool upgradeSelected = false;
+    public bool upgradeOptionChosen = false;
     public GameObject medicPrefab;
     public GameObject medicsCollection;
     public GameObject medicPlaceholder;
@@ -83,6 +85,7 @@ public class ClockUI : MonoBehaviour
 
     void clickUpgrade()
     {
+        upgradeSelected = true;
         medicUpgradePanel.SetActive(true);
         optionsPanel.SetActive(false);
     }
@@ -107,21 +110,25 @@ public class ClockUI : MonoBehaviour
         {
             gamevariablesScript.playerSpeed += 6.25f;
             playerSpeedPercent += 5;
+            upgradeOptionChosen = true;
         }
         if (choice == "risk")
         {
             gamevariablesScript.riskMeterSpeed -= 0.25f;
             riskMeterPercent += 5;
+            upgradeOptionChosen = true;
         }
         if (choice == "bleedout")
         {
             gamevariablesScript.bleedoutSpeed -= 0.15f;
             bleedoutPercent += 5;
+            upgradeOptionChosen = true;
         }
         if (choice == "countdown")
         {
             gamevariablesScript.countdownStartingTime += 0.5f;
             countdownSeconds += 0.5f;
+            upgradeOptionChosen = true;
         }
         medicUpgradePanel.SetActive(false);
         upgradePanel.SetActive(false);

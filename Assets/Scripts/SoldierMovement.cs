@@ -12,6 +12,8 @@ public class SoldierMovement : MonoBehaviour
     public MouseInput InputScript;
     public GameObject soldierCounter;
     public SoldierCounter soldierCounterScript;
+    public GameVariables variablesScript;
+    public TutorialManager tutScript;
 
     private Vector3 soldierOneTargetPosition;
     private Vector3 soldierTwoTargetPosition;
@@ -28,12 +30,13 @@ public class SoldierMovement : MonoBehaviour
 
     public bool hasJoint = false;
     public GameObject connectedMedic;
-    private GameObject connectedSoldier;
 
     
 
     private void Start()
     {
+        tutScript = GameObject.FindGameObjectWithTag("TutorialManager").GetComponent<TutorialManager>();
+        variablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
         inputManager = GameObject.FindGameObjectWithTag("InputManager");
         InputScript = inputManager.GetComponent<MouseInput>();
         soldierCounter = GameObject.FindGameObjectWithTag("SoldierCounter");
@@ -97,6 +100,13 @@ public class SoldierMovement : MonoBehaviour
             currentProgress += speed * Time.deltaTime;
         }
         LoadingBar.GetComponent<Image>().fillAmount = currentProgress / 100;
+
+        if (currentProgress >= 100)
+        {
+            tutScript.soldiersList.Remove(this.gameObject);
+            variablesScript.lives--;
+            Destroy(this.gameObject);
+        }
     }
 
     IEnumerator WoundingCoroutine()

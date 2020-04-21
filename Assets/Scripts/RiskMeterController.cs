@@ -14,6 +14,7 @@ public class RiskMeterController : MonoBehaviour
     public RiskMeterUI riskMeterUI;
     public MouseInput InputScript;
     public GameObject inputManagerObject;
+    public GameVariables variablesScript;
 
     float currentTime = 0f;
     float startingTime = 3f;
@@ -22,6 +23,7 @@ public class RiskMeterController : MonoBehaviour
     private void Start()
     {
         inputManagerObject = GameObject.FindGameObjectWithTag("InputManager");
+        variablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
         InputScript = inputManagerObject.GetComponent<MouseInput>();
         riskMeterUI.SetMaxRisk(maxRisk);
         riskMeterUI.setRisk(startingRisk);
@@ -34,6 +36,8 @@ public class RiskMeterController : MonoBehaviour
         if (isSafe)
         {
             DecreaseRisk();
+            currentTime = startingTime;
+            countdownText.text = "";
         }
         else if (!isSafe)
         {
@@ -47,6 +51,8 @@ public class RiskMeterController : MonoBehaviour
             if (currentTime <= 0)
             {
                 Debug.Log("Destroyed");
+                Destroy(gameObject);
+                variablesScript.lives--;
             }
         }
         
