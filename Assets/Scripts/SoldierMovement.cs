@@ -25,17 +25,17 @@ public class SoldierMovement : MonoBehaviour
     private bool hasStopped = false;
     public Transform LoadingBar;
     private float currentProgress = 0;
-    [SerializeField]
-    private float speed = 3;
 
     public bool hasJoint = false;
     public GameObject connectedMedic;
+    private bool positionSet = false;
+    public GameObject[] soldierPositions;
 
-    
+
 
     private void Start()
     {
-         
+
         variablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
         inputManager = GameObject.FindGameObjectWithTag("InputManager");
         InputScript = inputManager.GetComponent<MouseInput>();
@@ -48,6 +48,7 @@ public class SoldierMovement : MonoBehaviour
         {
             tutScript = GameObject.FindGameObjectWithTag("TutorialManager").GetComponent<TutorialManager>();
         }
+        soldierPositions = GameObject.FindGameObjectsWithTag("SoldierPlaceholder");
     }
     void Update()
     {
@@ -55,13 +56,21 @@ public class SoldierMovement : MonoBehaviour
         {
             soldierMove();
         }
+        if (isSoldierMoving && !variablesScript.inTutorial)
+        {
+            if (!positionSet)
+            {
+                SetRandomPos();
+            }
+            RandSoldMove();
+        }
         if (beginTimer)
         {
             woundingTimer();
         }
         if (hasJoint)
         {
-            transform.position = Vector3.MoveTowards(transform.position, connectedMedic.transform.position, 1);    
+            transform.position = Vector3.MoveTowards(transform.position, connectedMedic.transform.position, 1);
         }
     }
 
@@ -84,7 +93,43 @@ public class SoldierMovement : MonoBehaviour
             isSoldierMoving = false;
             hasStopped = true;
             randomiseInjury();
+            positionSet = false;
         }
+    }
+
+    void RandSoldMove()
+    {
+
+        if (name == "soldierOne")
+        {
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, soldierOneTargetPosition, soldierSpeed * Time.deltaTime);
+        }
+        if (name == "soldierTwo")
+        {
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, soldierTwoTargetPosition, soldierSpeed * Time.deltaTime);
+        }
+        if (name == "soldierThree")
+        {
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, soldierThreeTargetPosition, soldierSpeed * Time.deltaTime);
+        }
+        if (transform.localPosition == soldierOneTargetPosition || transform.localPosition == soldierTwoTargetPosition || transform.localPosition == soldierThreeTargetPosition)
+        {
+            isSoldierMoving = false;
+            hasStopped = true;
+            randomiseInjury();
+        }
+    }
+
+    void SetRandomPos()
+    {
+        
+
+        soldierOneTargetPosition = soldierPositions[Random.Range(0, soldierPositions.Length)].transform.localPosition;
+        soldierTwoTargetPosition = soldierPositions[Random.Range(0, soldierPositions.Length)].transform.localPosition;
+        soldierThreeTargetPosition = soldierPositions[Random.Range(0, soldierPositions.Length)].transform.localPosition;
+
+        
+        positionSet = true;
     }
 
     void randomiseInjury()
@@ -94,20 +139,20 @@ public class SoldierMovement : MonoBehaviour
             soldierTimer = Random.Range(1, 10);
             StartCoroutine(WoundingCoroutine());
         }
-        
+
     }
-    
+
     void woundingTimer()
     {
         if (currentProgress < 100)
         {
-            currentProgress += speed * Time.deltaTime;
+            currentProgress += variablesScript.bleedoutSpeed * Time.deltaTime;
         }
         LoadingBar.GetComponent<Image>().fillAmount = currentProgress / 100;
 
         if (currentProgress >= 100)
         {
-            
+
             variablesScript.lives--;
             Destroy(this.gameObject);
 
@@ -127,16 +172,17 @@ public class SoldierMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player"  && beginTimer && !InputScript.selectedMedic.GetComponent<PlayerMovement>().isCarrying)
+        if (collision.gameObject.tag == "Player" && beginTimer && !InputScript.selectedMedic.GetComponent<PlayerMovement>().isCarrying)
         {
             connectedMedic = collision.gameObject;
             InputScript.selectedMedic.GetComponent<PlayerMovement>().isCarrying = true;
             hasJoint = true;
         }
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Test");
         if (collision.gameObject.name == "StartingTrench")
         {
             Destroy(this.gameObject);

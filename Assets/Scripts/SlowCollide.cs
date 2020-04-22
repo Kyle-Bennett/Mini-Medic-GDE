@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class SlowCollide : MonoBehaviour
 {
+    public GameVariables variablesScript;
+    private void Start()
+    {
+        variablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<PlayerMovement>().speed = 1;
+        if (collision.gameObject.tag == "Player")
+        {
+            variablesScript.playerSpeed *= 0.5f;
+        }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.GetComponent<PlayerMovement>().speed = 4;
+        if (collision.gameObject.tag == "Player")
+        {
+            variablesScript.playerSpeed /= 0.5f;
+        }
     }
 }

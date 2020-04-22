@@ -10,6 +10,7 @@ TagManager:
   - InputManager
   - SoldierCounter
   - TutorialManager
+  - SoldierPlaceholder
   layers:
   - Default
   - TransparentFX

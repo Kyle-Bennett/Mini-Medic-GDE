@@ -8,7 +8,7 @@ public class RiskMeterController : MonoBehaviour
     public int maxRisk = 100;
     public int startingRisk = 0;
     public float currentRisk;
-    public float riskSpeed = 5;
+    public float riskSpeed;
     public bool isSafe = true;
 
     public RiskMeterUI riskMeterUI;
@@ -29,6 +29,15 @@ public class RiskMeterController : MonoBehaviour
         riskMeterUI.setRisk(startingRisk);
         currentRisk = startingRisk;
         currentTime = startingTime;
+
+        if (variablesScript.inTutorial)
+        {
+            riskSpeed = 5;
+        }
+        else if (!variablesScript.inTutorial)
+        {
+            riskSpeed = 10;
+        }
     }
 
     private void Update()
