@@ -94,7 +94,7 @@ public class ClockUI : MonoBehaviour
     {
         GameObject newMedic = Instantiate<GameObject>(medicPrefab);
         newMedic.transform.parent = medicPlaceholder.transform;
-        newMedic.transform.localScale = new Vector3(1f, 1f, 1f);
+        newMedic.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         newMedic.transform.localPosition = new Vector3(0f, 0f, 0f);
 
         upgradePanel.SetActive(false);

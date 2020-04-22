@@ -25,10 +25,11 @@ public class SoldierMovement : MonoBehaviour
     private bool hasStopped = false;
     public Transform LoadingBar;
     private float currentProgress = 0;
+    [SerializeField]
+    private float speed = 3;
 
     public bool hasJoint = false;
     public GameObject connectedMedic;
-    private bool positionSet = false;
 
     
 
@@ -53,14 +54,6 @@ public class SoldierMovement : MonoBehaviour
         if (isSoldierMoving)
         {
             soldierMove();
-        }
-        if (isSoldierMoving && !variablesScript.inTutorial)
-        { 
-            if (!positionSet)
-            {
-                SetRandomPos();
-            }
-            RandSoldMove();
         }
         if (beginTimer)
         {
@@ -91,39 +84,7 @@ public class SoldierMovement : MonoBehaviour
             isSoldierMoving = false;
             hasStopped = true;
             randomiseInjury();
-            positionSet = false;
         }
-    }
-
-    void RandSoldMove()
-    {
-
-        if (name == "soldierOne")
-        {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, soldierOneTargetPosition, soldierSpeed * Time.deltaTime);
-        }
-        if (name == "soldierTwo")
-        {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, soldierTwoTargetPosition, soldierSpeed * Time.deltaTime);
-        }
-        if (name == "soldierThree")
-        {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, soldierThreeTargetPosition, soldierSpeed * Time.deltaTime);
-        }
-        if (transform.localPosition == soldierOneTargetPosition || transform.localPosition == soldierTwoTargetPosition || transform.localPosition == soldierThreeTargetPosition)
-        {
-            isSoldierMoving = false;
-            hasStopped = true;
-            randomiseInjury();
-        }
-    }
-
-    void SetRandomPos()
-    {
-        soldierOneTargetPosition = new Vector3(Random.Range(-500, 500), Random.Range(-100, 300), 0);
-        soldierTwoTargetPosition = new Vector3(Random.Range(-500, 500), Random.Range(-100, 300), 0);
-        soldierThreeTargetPosition = new Vector3(Random.Range(-500, 500), Random.Range(-100, 300), 0);
-        positionSet = true;
     }
 
     void randomiseInjury()
@@ -140,7 +101,7 @@ public class SoldierMovement : MonoBehaviour
     {
         if (currentProgress < 100)
         {
-            currentProgress += variablesScript.bleedoutSpeed * Time.deltaTime;
+            currentProgress += speed * Time.deltaTime;
         }
         LoadingBar.GetComponent<Image>().fillAmount = currentProgress / 100;
 
@@ -176,7 +137,6 @@ public class SoldierMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Test");
         if (collision.gameObject.name == "StartingTrench")
         {
             Destroy(this.gameObject);
