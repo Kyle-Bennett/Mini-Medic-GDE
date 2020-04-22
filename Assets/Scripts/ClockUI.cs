@@ -9,7 +9,7 @@ public class ClockUI : MonoBehaviour
 
     private Text clock;
     private float time = 0;
-    private int wholeTime;
+    public int wholeTime;
     public int dayCount = 1;
     public GameObject upgradePanel;
     public GameObject medicUpgradePanel;

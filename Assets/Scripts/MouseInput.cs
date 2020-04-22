@@ -76,4 +76,23 @@ public class MouseInput : MonoBehaviour
             haveSoldiersSpawned = true;
         }
     }
+
+    public void spawnAllies()
+    {
+        soldierScript = soldierPrefab.GetComponentInChildren<SoldierMovement>();
+
+        GameObject soldierOne = Instantiate(soldierPrefab, new Vector3(150, 150, 0), Quaternion.identity) as GameObject;
+        soldierOne.name = "soldierOne";
+        soldierOne.transform.parent = canvas.transform;
+
+        GameObject soldierTwo = Instantiate(soldierPrefab, new Vector3(200, 150, 0), Quaternion.identity) as GameObject;
+        soldierTwo.name = "soldierTwo";
+        soldierTwo.transform.parent = canvas.transform;
+
+        GameObject soldierThree = Instantiate(soldierPrefab, new Vector3(325, 150, 0), Quaternion.identity) as GameObject;
+        soldierThree.name = "soldierThree";
+        soldierThree.transform.parent = canvas.transform;
+
+        soldierScript.isSoldierMoving = true;
+    }
 }

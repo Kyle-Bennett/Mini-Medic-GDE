@@ -35,7 +35,7 @@ public class SoldierMovement : MonoBehaviour
 
     private void Start()
     {
-        tutScript = GameObject.FindGameObjectWithTag("TutorialManager").GetComponent<TutorialManager>();
+         
         variablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
         inputManager = GameObject.FindGameObjectWithTag("InputManager");
         InputScript = inputManager.GetComponent<MouseInput>();
@@ -44,6 +44,10 @@ public class SoldierMovement : MonoBehaviour
         soldierOneTargetPosition = new Vector3(-302, 230, 0);
         soldierTwoTargetPosition = new Vector3(-67, 183, 0);
         soldierThreeTargetPosition = new Vector3(344, -6, 0);
+        if (variablesScript.inTutorial)
+        {
+            tutScript = GameObject.FindGameObjectWithTag("TutorialManager").GetComponent<TutorialManager>();
+        }
     }
     void Update()
     {
@@ -103,9 +107,14 @@ public class SoldierMovement : MonoBehaviour
 
         if (currentProgress >= 100)
         {
-            tutScript.soldiersList.Remove(this.gameObject);
+            
             variablesScript.lives--;
             Destroy(this.gameObject);
+
+            if (variablesScript.inTutorial)
+            {
+                tutScript.soldiersList.Remove(this.gameObject);
+            }
         }
     }
 

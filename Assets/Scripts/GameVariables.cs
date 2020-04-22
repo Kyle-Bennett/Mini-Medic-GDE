@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameVariables : MonoBehaviour
 {
+    public bool inTutorial;
+    private bool alliesSpawned = false;
+
     public float playerSpeed = 125f;
     public float riskMeterSpeed = 5f;
     public float countdownStartingTime = 3f;
@@ -21,11 +24,23 @@ public class GameVariables : MonoBehaviour
     public Button exitButton;
     public Button restartButton;
 
+    public ClockUI clockScript;
+    public MouseInput inputScript;
+
     private void Start()
     {
         exitButton.onClick.AddListener(ExitGame);
         restartButton.onClick.AddListener(RestartGame);
         lives = 3;
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            inTutorial = true;
+        }
+        else
+        {
+            inTutorial = false;
+        }
     }
     private void Update()
     {
@@ -56,6 +71,16 @@ public class GameVariables : MonoBehaviour
             lossScreen.SetActive(true);
             gameUI.SetActive(false);
             Time.timeScale = 1;
+        }
+
+        if (clockScript.wholeTime % 12 == 0 && !inTutorial && !alliesSpawned)
+        {
+            inputScript.spawnAllies();
+            alliesSpawned = true;
+        }
+        if (clockScript.wholeTime != 0 && (clockScript.wholeTime -1) % 12 == 0 && !inTutorial && alliesSpawned)
+        {
+            alliesSpawned = false;
         }
     }
 

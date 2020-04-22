@@ -2794,6 +2794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeeb9716e04ed9340b8aed47f810468f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inTutorial: 0
   playerSpeed: 125
   riskMeterSpeed: 5
   countdownStartingTime: 3
@@ -2806,6 +2807,8 @@ MonoBehaviour:
   gameUI: {fileID: 295656072}
   exitButton: {fileID: 517060179}
   restartButton: {fileID: 1194684865}
+  clockScript: {fileID: 1850309916}
+  inputScript: {fileID: 1081552085}
 --- !u!4 &408821038
 Transform:
   m_ObjectHideFlags: 0
@@ -11808,6 +11811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamevariablesScript: {fileID: 0}
+  wholeTime: 0
   dayCount: 1
   upgradePanel: {fileID: 1880030977}
   medicUpgradePanel: {fileID: 1701292172}
