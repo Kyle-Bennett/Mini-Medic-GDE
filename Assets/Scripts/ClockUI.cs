@@ -65,7 +65,11 @@ public class ClockUI : MonoBehaviour
         else if (gamevariablesScript.amountOfMedics < 4)
         {
             recruitMedicButton.enabled = true;
-            medicLimitText.enabled = false;
+            if (!gamevariablesScript.inTutorial)
+            {
+                medicLimitText.enabled = false;
+            }
+            
         }
 
         if (wholeTime == 24)
@@ -82,7 +86,7 @@ public class ClockUI : MonoBehaviour
             clock.text = "Day " + dayCount + "     " + wholeTime.ToString() + ":00";
         }
 
-        if (dayCount % 3 == 0 && !upgradesDone)
+        if (dayCount % 2 == 0 && !upgradesDone)
         {
             upgradePanel.SetActive(true);
             Time.timeScale = 0;

@@ -25,6 +25,7 @@ public class TutorialManager : MonoBehaviour
     public Button medicButton;
     public GameObject wonScreen;
     public Button exitButton;
+    private bool canSpawn = false;
 
     private void Start()
     {
@@ -78,6 +79,7 @@ public class TutorialManager : MonoBehaviour
                 inputScript.spawnSoldiers = true;
                 popUpIndex++;
                 waitTime = 7f;
+                canSpawn = true;
             }
         }
         else if (popUpIndex == 4)
@@ -143,7 +145,7 @@ public class TutorialManager : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Return))
             {
                 waitTime = 30f;
-                clockScript.dayCount = 3;
+                clockScript.dayCount = 2;
                 popUpIndex++;
             }
         }
@@ -184,5 +186,12 @@ public class TutorialManager : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+        if (soldiersList.Count == 0 && canSpawn)
+        {
+            inputScript.spawnSoldiers = true;
+            inputScript.haveSoldiersSpawned = false;
+            soldiersList.AddRange(GameObject.FindGameObjectsWithTag("Soldier"));
+        }
+        soldiersList.RemoveAll(GameObject => GameObject == null);
     }
 }
