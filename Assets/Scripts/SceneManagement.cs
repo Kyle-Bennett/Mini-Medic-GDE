@@ -24,5 +24,10 @@ public class SceneManagement : MonoBehaviour
 		SceneManager.LoadScene("Game");
 	}
 
-	
+	public void loadAchievements()
+	{
+		SceneManager.LoadScene("Achievements");
+	}
+
+
 }
