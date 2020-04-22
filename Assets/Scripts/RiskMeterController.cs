@@ -8,7 +8,6 @@ public class RiskMeterController : MonoBehaviour
     public int maxRisk = 100;
     public int startingRisk = 0;
     public float currentRisk;
-    public float riskSpeed = 5;
     public bool isSafe = true;
 
     public RiskMeterUI riskMeterUI;
@@ -28,7 +27,7 @@ public class RiskMeterController : MonoBehaviour
         riskMeterUI.SetMaxRisk(maxRisk);
         riskMeterUI.setRisk(startingRisk);
         currentRisk = startingRisk;
-        currentTime = startingTime;
+        currentTime = variablesScript.countdownStartingTime;
     }
 
     private void Update()
@@ -36,7 +35,7 @@ public class RiskMeterController : MonoBehaviour
         if (isSafe)
         {
             DecreaseRisk();
-            currentTime = startingTime;
+            currentTime = variablesScript.countdownStartingTime;
             countdownText.text = "";
         }
         else if (!isSafe)
@@ -79,14 +78,14 @@ public class RiskMeterController : MonoBehaviour
     {
         if (currentRisk <= maxRisk)
         {
-            currentRisk += riskSpeed * Time.deltaTime;
+            currentRisk += variablesScript.riskMeterSpeed * Time.deltaTime;
             riskMeterUI.setRisk(currentRisk);
         }
     }
     void DecreaseRisk()
     {
         if (currentRisk >= startingRisk)
-        currentRisk -= riskSpeed * Time.deltaTime;
+        currentRisk -= variablesScript.riskMeterSpeed * Time.deltaTime;
         riskMeterUI.setRisk(currentRisk);
     }
 }

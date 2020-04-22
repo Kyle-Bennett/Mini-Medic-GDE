@@ -5,18 +5,25 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    public float speed = 125;
     public Transform riskMeter;
     private Vector3 targetPosition;
     public bool isMoving = false;
     public bool isCarrying = false;
+    public float speed;
 
     public Vector3 transformComp;
     public Vector3 targetComp;
 
+    public GameVariables variablesScript;
+
+    private void Start()
+    {
+        
+        variablesScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
+    }
     void Update()
     {
+        speed = variablesScript.playerSpeed;
         if (isMoving)
         {
             Move();
@@ -35,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, variablesScript.playerSpeed * Time.deltaTime);
         transformComp = transform.position;
         float dist = Vector3.Distance(targetPosition, transform.position);
 
