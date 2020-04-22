@@ -37,7 +37,7 @@ public class GameVariables : MonoBehaviour
         restartButton.onClick.AddListener(RestartGame);
         lives = 3;
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial"))
         {
             inTutorial = true;
         }

@@ -21,7 +21,7 @@ public class SceneManagement : MonoBehaviour
 
 	public void loadGame()
 	{
-		SceneManager.LoadScene("Game");
+		SceneManager.LoadScene("Tutorial");
 	}
 
 	public void loadAchievements()
