@@ -70,4 +70,14 @@ public class Pause : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainMenu");
 	}
+
+	public void LevelOne()
+	{
+		SceneManager.LoadScene("LevelOne");
+	}
+
+	public void Tutorial()
+	{
+		SceneManager.LoadScene("Tutorial");
+	}
 }
