@@ -19,7 +19,7 @@ public class MouseInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && upgradePanel.activeInHierarchy == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            
+
 
             if (hit)
             {
@@ -60,7 +60,7 @@ public class MouseInput : MonoBehaviour
         {
             soldierScript = soldierPrefab.GetComponentInChildren<SoldierMovement>();
 
-            GameObject soldierOne =  Instantiate(soldierPrefab, new Vector3(150, 150, 0), Quaternion.identity) as GameObject;
+            GameObject soldierOne = Instantiate(soldierPrefab, new Vector3(150, 150, 0), Quaternion.identity) as GameObject;
             soldierOne.name = "soldierOne";
             soldierOne.transform.parent = canvas.transform;
 
@@ -79,17 +79,20 @@ public class MouseInput : MonoBehaviour
 
     public void spawnAllies()
     {
+
+
+
         soldierScript = soldierPrefab.GetComponentInChildren<SoldierMovement>();
 
-        GameObject soldierOne = Instantiate(soldierPrefab, new Vector3(150, 150, 0), Quaternion.identity) as GameObject;
+        GameObject soldierOne = Instantiate(soldierPrefab, new Vector3(Random.Range(-100, 1500), 100, 0), Quaternion.identity) as GameObject;
         soldierOne.name = "soldierOne";
         soldierOne.transform.parent = canvas.transform;
 
-        GameObject soldierTwo = Instantiate(soldierPrefab, new Vector3(200, 150, 0), Quaternion.identity) as GameObject;
+        GameObject soldierTwo = Instantiate(soldierPrefab, new Vector3(Random.Range(-100, 1500), 100, 0), Quaternion.identity) as GameObject;
         soldierTwo.name = "soldierTwo";
         soldierTwo.transform.parent = canvas.transform;
 
-        GameObject soldierThree = Instantiate(soldierPrefab, new Vector3(325, 150, 0), Quaternion.identity) as GameObject;
+        GameObject soldierThree = Instantiate(soldierPrefab, new Vector3(Random.Range(-100, 1500), 100, 0), Quaternion.identity) as GameObject;
         soldierThree.name = "soldierThree";
         soldierThree.transform.parent = canvas.transform;
 
