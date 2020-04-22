@@ -14,7 +14,7 @@ public class GameVariables : MonoBehaviour
     public float playerSpeed = 125f;
     public float riskMeterSpeed = 5f;
     public float countdownStartingTime = 3f;
-    public float bleedoutSpeed = 3f;
+    public float bleedoutSpeed = 1f;
 
     public int lives = 3;
     public Image lifeOne;
@@ -85,12 +85,12 @@ public class GameVariables : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        if (clockScript.wholeTime % 12 == 0 && !inTutorial && !alliesSpawned)
+        if (clockScript.wholeTime % 10 == 0 && !inTutorial && !alliesSpawned)
         {
             inputScript.spawnAllies();
             alliesSpawned = true;
         }
-        if (clockScript.wholeTime != 0 && (clockScript.wholeTime -1) % 12 == 0 && !inTutorial && alliesSpawned)
+        if (clockScript.wholeTime != 0 && (clockScript.wholeTime -1) % 10 == 0 && !inTutorial && alliesSpawned)
         {
             alliesSpawned = false;
         }

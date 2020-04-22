@@ -2771,7 +2771,7 @@ MonoBehaviour:
   playerSpeed: 125
   riskMeterSpeed: 5
   countdownStartingTime: 3
-  bleedoutSpeed: 3
+  bleedoutSpeed: 1.5
   lives: 3
   lifeOne: {fileID: 1834786627}
   lifeTwo: {fileID: 1709572956}
@@ -19127,7 +19127,7 @@ MonoBehaviour:
   optionsPanel: {fileID: 95676028}
   upgradeMedicButton: {fileID: 454320827}
   recruitMedicButton: {fileID: 290165114}
-  clockSpeed: 0.2
+  clockSpeed: 0.3
   selected: 0
   upgradeSelected: 0
   upgradeOptionChosen: 0
