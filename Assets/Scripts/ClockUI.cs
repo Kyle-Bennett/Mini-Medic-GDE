@@ -32,10 +32,10 @@ public class ClockUI : MonoBehaviour
     public Button countdownUpgrade;
 
     public Text upgradeStats;
-    private float playerSpeedPercent = 0;
-    private float riskMeterPercent = 0;
-    private float bleedoutPercent = 0;
-    private float countdownSeconds = 0;
+    public float playerSpeedPercent = 0;
+    public float riskMeterPercent = 0;
+    public float bleedoutPercent = 0;
+    public float countdownSeconds = 0;
 
     void Start()
     {
