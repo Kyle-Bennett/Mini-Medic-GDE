@@ -32,7 +32,6 @@ public class SoldierMovement : MonoBehaviour
     public GameObject[] soldierPositions;
 
 
-
     private void Start()
     {
 

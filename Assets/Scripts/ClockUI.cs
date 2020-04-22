@@ -55,6 +55,15 @@ public class ClockUI : MonoBehaviour
         time += clockSpeed * Time.deltaTime;
         wholeTime = Mathf.RoundToInt(time);
 
+        if (gamevariablesScript.amountOfMedics >= 4)
+        {
+            recruitMedicButton.enabled = false;
+        }
+        else if (gamevariablesScript.amountOfMedics < 4)
+        {
+            recruitMedicButton.enabled = true;
+        }
+
         if (wholeTime == 24)
         {
             time = 0;

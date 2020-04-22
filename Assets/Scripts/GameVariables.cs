@@ -8,6 +8,7 @@ public class GameVariables : MonoBehaviour
 {
     public bool inTutorial;
     private bool alliesSpawned = false;
+    public int amountOfMedics;
 
     public float playerSpeed = 125f;
     public float riskMeterSpeed = 5f;
@@ -40,6 +41,14 @@ public class GameVariables : MonoBehaviour
         else
         {
             inTutorial = false;
+        }
+        if (inTutorial)
+        {
+            amountOfMedics = 2;
+        }
+        else if (!inTutorial)
+        {
+            amountOfMedics = 1;
         }
     }
     private void Update()
@@ -81,6 +90,12 @@ public class GameVariables : MonoBehaviour
         if (clockScript.wholeTime != 0 && (clockScript.wholeTime -1) % 12 == 0 && !inTutorial && alliesSpawned)
         {
             alliesSpawned = false;
+        }
+        if (amountOfMedics <= 0)
+        {
+            lossScreen.SetActive(true);
+            gameUI.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 

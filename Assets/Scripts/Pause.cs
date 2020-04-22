@@ -18,7 +18,7 @@ public class Pause : MonoBehaviour
 	void Start()
     {
 		pauseMenuUI.SetActive(false);
-		stat_text.enabled = false;
+
 		
 	}
 
