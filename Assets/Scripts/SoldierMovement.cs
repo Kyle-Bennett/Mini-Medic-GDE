@@ -69,7 +69,11 @@ public class SoldierMovement : MonoBehaviour
         }
         if (hasJoint)
         {
-            transform.position = Vector3.MoveTowards(transform.position, connectedMedic.transform.position, 1);
+            if (connectedMedic != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, connectedMedic.transform.position, 1);
+            }
+            
         }
     }
 
@@ -153,7 +157,9 @@ public class SoldierMovement : MonoBehaviour
         {
 
             variablesScript.lives--;
+            InputScript.selectedMedic.GetComponent<PlayerMovement>().isCarrying = false;
             Destroy(this.gameObject);
+            
 
             if (variablesScript.inTutorial)
             {

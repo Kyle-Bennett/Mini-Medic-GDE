@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameVariables : MonoBehaviour
 {
@@ -25,8 +26,10 @@ public class GameVariables : MonoBehaviour
     public Button exitButton;
     public Button restartButton;
 
+    public SoldierCounter countScript;
     public ClockUI clockScript;
     public MouseInput inputScript;
+    public TMP_Text scoreText;
 
     private void Start()
     {
@@ -38,7 +41,7 @@ public class GameVariables : MonoBehaviour
         {
             inTutorial = true;
         }
-        else
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
         {
             inTutorial = false;
         }
@@ -96,6 +99,7 @@ public class GameVariables : MonoBehaviour
             lossScreen.SetActive(true);
             gameUI.SetActive(false);
             Time.timeScale = 1;
+            scoreText.text = "Score: " + countScript.soldiersSaved.ToString();
         }
     }
 

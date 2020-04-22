@@ -62,6 +62,7 @@ public class RiskMeterController : MonoBehaviour
                 Debug.Log("Destroyed");
                 Destroy(gameObject);
                 variablesScript.lives--;
+                variablesScript.amountOfMedics--;
             }
         }
         

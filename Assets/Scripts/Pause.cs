@@ -13,12 +13,18 @@ public class Pause : MonoBehaviour
 	public TMP_Text stat_text;
 	public GameObject pauseMenuUI;
 	public ClockUI upgrades;
+    public GameVariables variableScript;
 
 	
 	void Start()
     {
+        variableScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameVariables>();
 		pauseMenuUI.SetActive(false);
-
+        if (!variableScript.inTutorial)
+        {
+            stat_text.enabled = false;
+        }
+		
 		
 	}
 
@@ -51,8 +57,12 @@ public class Pause : MonoBehaviour
 		pauseMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		GameIsPaused = true;
-		stat_text.enabled = true;
-		stat_text.text = "+ upgrade player speed " + upgrades.playerSpeedPercent + "%\n\n" + "- risk meter takes longer to fill by " + upgrades.riskMeterPercent + "%\n\n" + "+ soldiers take longer to bleed out by " + upgrades.bleedoutPercent + "%\n\n" + "+ increases last chance by  " + upgrades.countdownSeconds + " seconds";
+        if (!variableScript.inTutorial)
+        {
+            stat_text.enabled = true;
+            stat_text.text = "+ upgrade player speed " + upgrades.playerSpeedPercent + "%\n\n" + "- risk meter takes longer to fill by " + upgrades.riskMeterPercent + "%\n\n" + "+ soldiers take longer to bleed out by " + upgrades.bleedoutPercent + "%\n\n" + "+ increases last chance by  " + upgrades.countdownSeconds + " seconds";
+        }
+		
 
 	}
 

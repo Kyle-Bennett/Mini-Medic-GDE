@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ClockUI : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class ClockUI : MonoBehaviour
     public Button countdownUpgrade;
 
     public Text upgradeStats;
+    public TMP_Text medicLimitText;
     public float playerSpeedPercent = 0;
     public float riskMeterPercent = 0;
     public float bleedoutPercent = 0;
@@ -58,10 +60,12 @@ public class ClockUI : MonoBehaviour
         if (gamevariablesScript.amountOfMedics >= 4)
         {
             recruitMedicButton.enabled = false;
+            medicLimitText.enabled = true;
         }
         else if (gamevariablesScript.amountOfMedics < 4)
         {
             recruitMedicButton.enabled = true;
+            medicLimitText.enabled = false;
         }
 
         if (wholeTime == 24)
@@ -97,13 +101,18 @@ public class ClockUI : MonoBehaviour
         upgradeSelected = true;
         medicUpgradePanel.SetActive(true);
         optionsPanel.SetActive(false);
+        if (gamevariablesScript.lives < 3)
+        {
+            gamevariablesScript.lives++;
+        }
+        
     }
 
     void clickRecruit()
     {
         GameObject newMedic = Instantiate<GameObject>(medicPrefab);
         newMedic.transform.parent = medicPlaceholder.transform;
-        newMedic.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        newMedic.transform.localScale = new Vector3(1f, 1f, 1f);
         newMedic.transform.localPosition = new Vector3(0f, 0f, 0f);
 
         upgradePanel.SetActive(false);
@@ -111,6 +120,11 @@ public class ClockUI : MonoBehaviour
         Time.timeScale = 1;
         upgradesDone = true;
         selected = true;
+        gamevariablesScript.amountOfMedics++;
+        if (gamevariablesScript.lives < 3)
+        {
+            gamevariablesScript.lives++;
+        }
     }
 
     void upgradeMedic (string choice)
