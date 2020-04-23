@@ -29,5 +29,8 @@ public class SceneManagement : MonoBehaviour
 		SceneManager.LoadScene("Achievements");
 	}
 
-
+    public void loadLevel()
+    {
+        SceneManager.LoadScene("LevelOne");
+    }
 }
