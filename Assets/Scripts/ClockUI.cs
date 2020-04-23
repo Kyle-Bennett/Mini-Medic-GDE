@@ -91,7 +91,7 @@ public class ClockUI : MonoBehaviour
             upgradePanel.SetActive(true);
             Time.timeScale = 0;
         }
-        if ((dayCount-1) % 3 == 0)
+        if ((dayCount-1) % 2 == 0)
         {
             upgradesDone = false;
         }
